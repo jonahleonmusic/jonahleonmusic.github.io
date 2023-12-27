@@ -18,7 +18,7 @@ function newRhythym(length, genre){
     noteCount += newRhythym[i].noteValue;
   }
 
-  if noteCount % 1 = 0 { ///if note count is a whole integer (1 bar, 2 bars, 3 bars in length)
+  if (noteCount % 1 = 0) { ///if note count is a whole integer (1 bar, 2 bars, 3 bars in length)
     return noteCount;
   } else {
     console.log("invalid rhythym");
