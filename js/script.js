@@ -32,6 +32,7 @@ function createHTMLElement(card){
   lyricHeader.appendChild(lyricTect);
 
   cardContainer.appendChild(lyricHeader);
+  portfolio-header
 
   
   
