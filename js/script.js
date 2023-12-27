@@ -38,7 +38,7 @@ function newCard (genre, key) {
   let voicing = "inputVoicingImageHere";
   let newCard = {genre: genre, chordProgression: chordProgression, notes: notes, rhythym: rhythym, artwork: artwork, lyric: lyric, voicing: voicing};
 
-  console.log("new card created!);
+  console.log("new card created!");
   cards.push(newCard);
   console.log(cards);
   return newCard;
