@@ -16,7 +16,7 @@ function getCardDeck(artist, key){
   // specify the path of the CSV file
   let artistPath = artist.split(' ').join('_'); // changes "Domonic Fike to "Domonic_Fike" so can be read in path
   const path = ("./card_data/").concat(artistPath).concat(".csv");
-  var cardDeck = [];
+  var cardDeck;
   
   // var file = new File([], path);
 
@@ -32,7 +32,7 @@ function getCardDeck(artist, key){
    Papa.parse(path, {
           download: true,
           complete: function(result) {
-          console.log(result.data)
+          cardDeck = result.data;
     }
   })
   console.log(cardDeck);
