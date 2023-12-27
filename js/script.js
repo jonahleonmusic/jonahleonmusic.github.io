@@ -37,14 +37,15 @@ function createHTMLElement(card){
   
 };
 function showCard(cards){
+  console.log(cards);
   cards.shift(); //removes header section from array
   cards.pop();
+  console.log(cards);
   let card = [];
   //creates new original card
   console.log(cards);
   for (let i = 0; i < cards[0].length; i++) {
-    console.log(getRandomInt(cards.length));
-    console.log(i);
+    
     card.push(cards[getRandomInt(cards.length)][i]);
   };
 
