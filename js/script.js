@@ -18,7 +18,7 @@ function getCardDeck(artist, key){
   const path = ("./card_data/").concat(artistPath).concat(".csv");
   let cardDeck = [];
 
-  $.ajax({
+  jQuery.ajax({
     url: "https://raw.githubusercontent.com/CSSEGISandData/COVID-19/6eae5b65a32b679efacf95a2867648330f83a871/csse_covid_19_data/csse_covid_19_time_series/time_series_19-covid-Confirmed.csv",
     success: function(csv) {
         const output = Papa.parse(path, {
