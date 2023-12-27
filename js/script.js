@@ -8,7 +8,9 @@ if (document.getElementById('my-work-link')) {
 
 //songwritingCards section
 const cards = [];
-
+function doStuff(data){
+  return data;
+}
 function getCardDeck(artist, key, callBack){
 
 
@@ -86,7 +88,7 @@ function newRhythym(length, genre){
   
 }
 function newCard (artist, key) {
-  let cardDeck = getCardDeck(artist);
+  let cardDeck = getCardDeck(artist, "NA", doStuff);
   console.log(cardDeck);
   let chordProgression = ["i", "IV", "V"];
   let notes = [3,4,1];
