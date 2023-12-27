@@ -10,31 +10,43 @@ if (document.getElementById('my-work-link')) {
 const cards = [];
 
 function getCardDeck(artist, key){
-  const { parse } = require("csv-parse");
-  const fs = require("fs");
 
-  // specify the path of the CSV file
-  let artistPath = artist.split(' ').join('_'); // changes "Domonic Fike to "Domonic_Fike" so can be read in path
-  const path = ("./card_data/").concat(artistPath).concat(".csv");
 
   // Create a readstream
   // Parse options: delimiter and start from line 1
+  
+  const fs = require("fs");
+  const readline = require("readline");
+  
+  // specify the path of the CSV file
+  let artistPath = artist.split(' ').join('_'); // changes "Domonic Fike to "Domonic_Fike" so can be read in path
+  const path = ("./card_data/").concat(artistPath).concat(".csv");
+  
+  // Create a read stream
+  const readStream = fs.createReadStream(path);
+  
+  // Create a readline interface
+  const readInterface = readline.createInterface({
+    input: readStream
+  });
+  
+
   let cardDeck = [];
-  fs.createReadStream(path)
-    .pipe(parse({ delimiter: ",", from_line: 1 }))
-    .on("data", function (row) {
-      // executed for each row of data
-      console.log(row);
-      cardDeck.push(row);
-    })
-    .on("error", function (error) {
-      // Handle the errors
-      console.log(error.message);
-    })
-    .on("end", function () {
-      // executed when parsing is complete
-      console.log("File read successful");
-    });
+  // Event handler for reading lines
+  readInterface.on("line", (line) => {
+    const row = line.split(",");
+    cardDeck.push(row);
+  });
+  
+  // Event handler for the end of file
+  readInterface.on("close", () => {
+    console.log(cardDeck);
+  });
+  
+  // Event handler for handling errors
+  readInterface.on("error", (err) => {
+    console.error("Error reading the CSV file:", err);
+  });
 
   return cardDeck;
 };
