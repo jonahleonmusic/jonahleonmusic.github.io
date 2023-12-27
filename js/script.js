@@ -24,15 +24,13 @@ function createHTMLElement(card){
   let notes = card[7];
   
  
-  const cardContainer = document.createElement("div");
+  const cardContainer = document.getElementById("card-container");
 
   //create lyric header element
   const lyricHeader = document.createElement("h2");
   const lyricText = document.createTextNode(lyric);
-  lyricHeader.appendChild(lyricTect);
+  lyricHeader.appendChild(lyricText);
 
-  cardContainer.appendChild(lyricHeader);
-  portfolio-header
 
   
   
