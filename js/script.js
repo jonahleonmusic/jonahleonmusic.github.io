@@ -29,10 +29,12 @@ function getCardDeck(artist, key){
   //   }
   // });
 
-  Papa.parse(path, {
-    complete: function(result) {
-        console.log(result.data)
-  }
+   Papa.parse(path, {
+          download: true,
+          complete: function(result) {
+          console.log(result.data)
+    }
+  })
   console.log(cardDeck);
   
   jQuery.ajax({
