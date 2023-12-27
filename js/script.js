@@ -18,16 +18,21 @@ function getCardDeck(artist, key){
   const path = ("./card_data/").concat(artistPath).concat(".csv");
   var cardDeck = [];
   
-  var file = new File([], path);
+  // var file = new File([], path);
+
+  // Papa.parse(path, {
+  //   header: true,
+  //   dynamicTyping: true,
+  //   complete: function(results) {
+  //     console.log(results);
+  //     cardDeck = results.data;
+  //   }
+  // });
 
   Papa.parse(path, {
-    header: true,
-    dynamicTyping: true,
-    complete: function(results) {
-      console.log(results);
-      cardDeck = results.data;
-    }
-  });
+    complete: function(result) {
+        console.log(result.data)
+  }
   console.log(cardDeck);
   
   jQuery.ajax({
