@@ -8,6 +8,7 @@ if (document.getElementById('my-work-link')) {
 
 //songwritingCards section
 const cards = [];
+
 function newRhythym(length, genre){
   let newRhythym = [{noteValue: .25, noteType: "normal"}, {noteValue: .125, noteType: "rest"}, {noteValue: .125, noteType: "normal"}, {noteValue: .5, noteType: "normal"}];
 
@@ -27,12 +28,10 @@ function newRhythym(length, genre){
   
 }
 function newCard (genre, key) {
-  console.log("hi");
+  
   let chordProgression = ["i", "IV", "V"];
   let notes = [3,4,1];
-
-  //rhythym is a list of objects where each object is a single note, note can either be "normal", "dotted", or "rest"
-  let rhythym = newRhythym(1, genre);
+  let rhythym = newRhythym(1, genre); //rhythym is a list of objects where each object is a single note, note can either be "normal", "dotted", or "rest"
   let artwork = "inputArtImageURLHere";
   let lyric = "crazy lyric!";
   let voicing = "inputVoicingImageHere";
@@ -41,6 +40,7 @@ function newCard (genre, key) {
   console.log("new card created!");
   cards.push(newCard);
   console.log(cards);
+  
   return newCard;
 }
 
