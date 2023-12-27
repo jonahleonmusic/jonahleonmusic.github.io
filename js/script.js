@@ -30,10 +30,10 @@ function getCardDeck(artist, key, callBack){
   // var cardDeck;
    Papa.parse(path, {
           download: true,
-          complete: function(result) {
-          callBack(result.data);
-          console.log(result.data);
-          
+          dynamicTyping: true,
+          complete: function(results) {
+            callBack(results.data);
+            console.log(results.data);     
     }
   })
   // console.log(cardDeck);
