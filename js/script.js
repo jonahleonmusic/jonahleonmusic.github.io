@@ -10,6 +10,10 @@ if (document.getElementById('my-work-link')) {
 const cards = [];
 
 function newRhythym(length, genre){
+
+  //if note is > 0 and < 10, noteValue = note, and noteType = "normal
+  //if note is < 0, then noteValue = note * -1, and noteType = "rest"
+  //if note is > 10, then noteValue = note - 10, and noteType = "dotted"
   let newRhythym = [{noteValue: .25, noteType: "normal"}, {noteValue: .125, noteType: "rest"}, {noteValue: .125, noteType: "normal"}, {noteValue: .5, noteType: "normal"}];
 
   //check if valid rhythym is created
