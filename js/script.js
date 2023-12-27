@@ -12,7 +12,7 @@ function newRhythym(length, genre){
   let newRhythym = [{noteValue: .25, noteType: "normal"}, {noteValue: .125, noteType: "rest"}, {noteValue: .125, noteType: "normal"}, {noteValue: .5, noteType: "normal"}];
 
   //check if valid rhythym is created
-  let noteCount = 0;
+  var noteCount = 0;
   for (let i = 0; i < newRhythym.length; i++) {
     noteCount += newRhythym[i].noteValue;
   }
