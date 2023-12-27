@@ -16,8 +16,18 @@ function getCardDeck(artist, key){
   // specify the path of the CSV file
   let artistPath = artist.split(' ').join('_'); // changes "Domonic Fike to "Domonic_Fike" so can be read in path
   const path = ("./card_data/").concat(artistPath).concat(".csv");
-  let cardDeck = [];
-  console.log(path);
+  var cardDeck = [];
+  
+  Papa.parse(path, {
+    header: true,
+    dynamicTyping: true,
+    complete: function(results) {
+      console.log(results);
+      cardDeck = results.data;
+    }
+  });
+  console.log(cardDeck);
+  
   jQuery.ajax({
     success: function(csv) {
         const output = Papa.parse(path, {
