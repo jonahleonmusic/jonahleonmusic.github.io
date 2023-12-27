@@ -9,6 +9,32 @@ if (document.getElementById('my-work-link')) {
 //songwritingCards section
 const cards = [];
 
+function getCard(artist){
+  const { parse } = require("csv-parse");
+  const fs = require("fs");
+
+  // specify the path of the CSV file
+  const path = "./StudentsData.csv";
+
+  // Create a readstream
+  // Parse options: delimiter and start from line 1
+
+  fs.createReadStream(path)
+    .pipe(parse({ delimiter: ",", from_line: 1 }))
+    .on("data", function (row) {
+      // executed for each row of data
+      console.log(row);
+    })
+    .on("error", function (error) {
+      // Handle the errors
+      console.log(error.message);
+    })
+    .on("end", function () {
+      // executed when parsing is complete
+      console.log("File read successful");
+    });
+};
+
 function newRhythym(length, genre){
 
   //if note is > 0 and < 10, noteValue = note, and noteType = "normal
@@ -21,7 +47,7 @@ function newRhythym(length, genre){
   console.log(noteCount);
   for (let i = 0; i < newRhythym.length; i++) {
     noteCount += newRhythym[i].noteValue;
-  }
+  };
 
   if (noteCount % 1 == 0) { ///if note count is a whole integer (1 bar, 2 bars, 3 bars in length)
     return noteCount;
