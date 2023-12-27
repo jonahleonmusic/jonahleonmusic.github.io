@@ -44,3 +44,10 @@ Feel free to [contact me](#) if you have any questions or just want to say hi!
 - Apple
 - Banana
 - Orange
+
+# h1 heading 
+## h2 heading 
+### h3 heading 
+#### h4 heading 
+##### h5 heading 
+###### h6 heading
