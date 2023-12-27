@@ -30,8 +30,12 @@ function createHTMLElement(card){
   const lyricHeader = document.createElement("h2");
   const lyricText = document.createTextNode(lyric);
   lyricHeader.appendChild(lyricText);
-
   cardContainer.appendChild(lyricHeader);
+
+  //create art image element
+  var artwork = new Image();
+  artwork.src = artURL;
+  cardContainer.appendChild(artwork);
 
   
   
