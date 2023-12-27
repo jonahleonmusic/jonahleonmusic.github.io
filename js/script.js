@@ -18,7 +18,9 @@ function getCardDeck(artist, key){
   const path = ("./card_data/").concat(artistPath).concat(".csv");
   var cardDeck = [];
   
-  Papa.parse(path, {
+  const file = fs.createReadStream(path);
+  
+  Papa.parse(file, {
     header: true,
     dynamicTyping: true,
     complete: function(results) {
