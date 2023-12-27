@@ -13,6 +13,7 @@ function newRhythym(length, genre){
 
   //check if valid rhythym is created
   var noteCount = 0;
+  console.log(noteCount);
   for (let i = 0; i < newRhythym.length; i++) {
     noteCount += newRhythym[i].noteValue;
   }
