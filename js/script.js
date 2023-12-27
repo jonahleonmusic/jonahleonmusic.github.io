@@ -42,7 +42,7 @@ function showCard(cards){
   //creates new original card
   console.log(cards);
   for (let i = 0; i < cards[0].length; i++) {
-    console.log(cards[getRandomInt(cards.length));
+    console.log(getRandomInt(cards.length));
     console.log(i);
     card.push(cards[getRandomInt(cards.length)][i]);
   };
