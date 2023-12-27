@@ -27,6 +27,7 @@ function newRhythym(length, genre){
   
 }
 function newCard (genre, key) {
+  console.log("hi");
   let chordProgression = ["i", "IV", "V"];
   let notes = [3,4,1];
 
