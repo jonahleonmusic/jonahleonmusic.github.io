@@ -14,7 +14,7 @@ function getCardDeck(artist, key){
   const fs = require("fs");
 
   // specify the path of the CSV file
-  let artistPath = artist.split(' ').join('_')); // changes "Domonic Fike to "Domonic_Fike" so can be read in path
+  let artistPath = artist.split(' ').join('_'); // changes "Domonic Fike to "Domonic_Fike" so can be read in path
   const path = ("./card_data/").concat(artistPath).concat(".csv");
 
   // Create a readstream
