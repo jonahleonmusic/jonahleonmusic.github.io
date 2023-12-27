@@ -16,7 +16,6 @@ function getCardDeck(artist, key){
   // specify the path of the CSV file
   let artistPath = artist.split(' ').join('_'); // changes "Domonic Fike to "Domonic_Fike" so can be read in path
   const path = ("./card_data/").concat(artistPath).concat(".csv");
-  var cardDeck;
   
   // var file = new File([], path);
 
@@ -29,28 +28,28 @@ function getCardDeck(artist, key){
   //   }
   // });
 
-   Papa.parse(path, {
+   let cardDeck = Papa.parse(path, {
           download: true,
           complete: function(result) {
           return result.data;
     }
   })
   
-  jQuery.ajax({
-    success: function(csv) {
-        const output = Papa.parse(path, {
-          header: true, // Convert rows to Objects using headers as properties
-        });
-        if (output.data) {
-          console.log(output.data);
-        } else {
-          console.log(output.errors);
-        }
-    },
-    error: function(jqXHR, textStatus, errorThrow){
-        console.log(textStatus);
-    }
-});
+//   jQuery.ajax({
+//     success: function(csv) {
+//         const output = Papa.parse(path, {
+//           header: true, // Convert rows to Objects using headers as properties
+//         });
+//         if (output.data) {
+//           console.log(output.data);
+//         } else {
+//           console.log(output.errors);
+//         }
+//     },
+//     error: function(jqXHR, textStatus, errorThrow){
+//         console.log(textStatus);
+//     }
+// });
  
 
   return cardDeck;
