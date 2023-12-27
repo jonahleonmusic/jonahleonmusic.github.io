@@ -32,10 +32,9 @@ function getCardDeck(artist, key){
    Papa.parse(path, {
           download: true,
           complete: function(result) {
-          cardDeck = results.data;
+          return result.data;
     }
   })
-  console.log(cardDeck);
   
   jQuery.ajax({
     success: function(csv) {
