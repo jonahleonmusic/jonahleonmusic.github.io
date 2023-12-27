@@ -19,7 +19,8 @@ function getCardDeck(artist, key){
   var cardDeck = [];
   
   var file = new File([], path);
-  
+
+  console.log(file);
   Papa.parse(file, {
     header: true,
     dynamicTyping: true,
