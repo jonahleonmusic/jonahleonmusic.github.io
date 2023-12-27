@@ -9,21 +9,23 @@ if (document.getElementById('my-work-link')) {
 //songwritingCards section
 const cards = [];
 
-function getCard(artist){
+function getCardDeck(artist, key){
   const { parse } = require("csv-parse");
   const fs = require("fs");
 
   // specify the path of the CSV file
-  const path = "./StudentsData.csv";
+  let artistPath = artist.split(' ').join('_')); // changes "Domonic Fike to "Domonic_Fike" so can be read in path
+  const path = ("./card_data/").concat(artistPath).concat(".csv");
 
   // Create a readstream
   // Parse options: delimiter and start from line 1
-
+  let cardDeck = [];
   fs.createReadStream(path)
     .pipe(parse({ delimiter: ",", from_line: 1 }))
     .on("data", function (row) {
       // executed for each row of data
       console.log(row);
+      cardDeck.push(row);
     })
     .on("error", function (error) {
       // Handle the errors
@@ -33,6 +35,12 @@ function getCard(artist){
       // executed when parsing is complete
       console.log("File read successful");
     });
+
+  return cardDeck;
+};
+
+function getCard(){
+  
 };
 
 function newRhythym(length, genre){
@@ -57,8 +65,9 @@ function newRhythym(length, genre){
   /////---------------------------
   
 }
-function newCard (genre, key) {
-  
+function newCard (artist, key) {
+  let cardDeck = getCardDeck(artist);
+  console.log(cardDeck);
   let chordProgression = ["i", "IV", "V"];
   let notes = [3,4,1];
   let rhythym = newRhythym(1, genre); //rhythym is a list of objects where each object is a single note, note can either be "normal", "dotted", or "rest"
