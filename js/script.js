@@ -7,7 +7,6 @@ if (document.getElementById('my-work-link')) {
 
 
 //songwritingCards section
-const cards = [];
 
 function getCardDeck(artist, key){
 
@@ -29,7 +28,7 @@ function getRandomInt(max) {
 
 function showCard(cards){
   let card = [];
-  //creates new card
+  //creates new original card
   for (let i = 0; i < cards[0].length; i++) {
     card.push(cards[getRandomInt(cards.length)][i]);
   };
@@ -71,8 +70,6 @@ function newCard (artist, key) {
           dynamicTyping: true,
           complete: function(results) {
             showCard(results.data);
-            
-            // console.log(results.data);     
     }
   })
   // let cardDeck = getCardDeck(artist, "NA");
@@ -84,12 +81,6 @@ function newCard (artist, key) {
   // let lyric = "crazy lyric!";
   // let voicing = "inputVoicingImageHere";
   // let newCard = {genre: genre, chordProgression: chordProgression, notes: notes, rhythym: rhythym, artwork: artwork, lyric: lyric, voicing: voicing};
-
-  console.log("new card created!");
-  cards.push(newCard);
-  console.log(cards);
-  
-  return newCard;
 }
 
 
