@@ -8,10 +8,8 @@ if (document.getElementById('my-work-link')) {
 
 //songwritingCards section
 const cards = [];
-function doStuff(data){
-  return data;
-}
-function getCardDeck(artist, key, callBack){
+
+function getCardDeck(artist, key){
 
 
   
@@ -34,10 +32,12 @@ function getCardDeck(artist, key, callBack){
           download: true,
           dynamicTyping: true,
           complete: function(results) {
-            callBack(results.data);
+            const cardDeck = results.data;
             console.log(results.data);     
     }
   })
+
+  return cardDeck;
   // console.log(cardDeck);
 
   
@@ -88,7 +88,7 @@ function newRhythym(length, genre){
   
 }
 function newCard (artist, key) {
-  let cardDeck = getCardDeck(artist, "NA", doStuff);
+  let cardDeck = getCardDeck(artist, "NA");
   console.log(cardDeck);
   let chordProgression = ["i", "IV", "V"];
   let notes = [3,4,1];
