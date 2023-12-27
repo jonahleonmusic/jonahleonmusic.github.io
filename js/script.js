@@ -36,10 +36,11 @@ function createHTMLElement(card){
   
 };
 function showCard(cards){
+  cards.shift(); //removes header section from array
   let card = [];
   //creates new original card
   for (let i = 0; i < cards[0].length; i++) {
-    card.push(cards[getRandomInt(cards.length) + 1][i]);
+    card.push(cards[getRandomInt(cards.length)][i]);
   };
 
   console.log(card);
