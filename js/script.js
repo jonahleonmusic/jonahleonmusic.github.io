@@ -9,7 +9,7 @@ if (document.getElementById('my-work-link')) {
 //songwritingCards section
 const cards = [];
 
-function getCardDeck(artist, key){
+function getCardDeck(artist, key, callBack){
 
 
   
@@ -27,16 +27,16 @@ function getCardDeck(artist, key){
   //     cardDeck = results.data;
   //   }
   // });
-  var cardDeck;
+  // var cardDeck;
    Papa.parse(path, {
           download: true,
           complete: function(result) {
+          callBack(result.data);
           console.log(result.data);
-          cardDeck = result.data;
-          console.log("Hi");
+          
     }
   })
-  console.log(cardDeck);
+  // console.log(cardDeck);
 
   
 //   jQuery.ajax({
@@ -56,7 +56,7 @@ function getCardDeck(artist, key){
 // });
  
 
-  return cardDeck;
+  // return cardDeck;
 };
 
 function getCard(){
