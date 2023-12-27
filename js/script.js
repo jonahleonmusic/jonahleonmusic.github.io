@@ -40,7 +40,7 @@ function showCard(cards){
   let card = [];
   //creates new original card
   for (let i = 0; i < cards[0].length; i++) {
-    card.push(cards[getRandomInt(cards.length)][i]);
+    card.push(cards[getRandomInt(cards.length) + 1][i]);
   };
 
   console.log(card);
