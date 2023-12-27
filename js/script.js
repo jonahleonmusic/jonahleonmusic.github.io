@@ -38,6 +38,7 @@ function createHTMLElement(card){
 };
 function showCard(cards){
   cards.shift(); //removes header section from array
+  cards.pop();
   let card = [];
   //creates new original card
   console.log(cards);
@@ -84,6 +85,7 @@ function newCard (artist, key) {
           download: true,
           dynamicTyping: true,
           complete: function(results) {
+            console.log(results.data);
             showCard(results.data);
     }
   })
