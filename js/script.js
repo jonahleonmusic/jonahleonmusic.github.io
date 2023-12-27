@@ -32,7 +32,7 @@ function getCardDeck(artist, key){
    Papa.parse(path, {
           download: true,
           complete: function(result) {
-          cardDeck = result.data;
+          cardDeck = results.data;
     }
   })
   console.log(cardDeck);
