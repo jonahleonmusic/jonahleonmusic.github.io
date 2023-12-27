@@ -27,15 +27,17 @@ function getCardDeck(artist, key){
   //     cardDeck = results.data;
   //   }
   // });
-
-   let cardDeck = Papa.parse(path, {
+  var cardDeck;
+   Papa.parse(path, {
           download: true,
           complete: function(result) {
           console.log(result.data);
+          cardDeck = result.data;
           console.log("Hi");
-          return result.data;
     }
   })
+  console.log(cardDeck);
+
   
 //   jQuery.ajax({
 //     success: function(csv) {
