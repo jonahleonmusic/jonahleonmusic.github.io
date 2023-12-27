@@ -12,41 +12,29 @@ const cards = [];
 function getCardDeck(artist, key){
 
 
-  // Create a readstream
-  // Parse options: delimiter and start from line 1
-  
-  const fs = require("fs");
-  const readline = require("readline");
   
   // specify the path of the CSV file
   let artistPath = artist.split(' ').join('_'); // changes "Domonic Fike to "Domonic_Fike" so can be read in path
   const path = ("./card_data/").concat(artistPath).concat(".csv");
-  
-  // Create a read stream
-  const readStream = fs.createReadStream(path);
-  
-  // Create a readline interface
-  const readInterface = readline.createInterface({
-    input: readStream
-  });
-  
-
   let cardDeck = [];
-  // Event handler for reading lines
-  readInterface.on("line", (line) => {
-    const row = line.split(",");
-    cardDeck.push(row);
-  });
-  
-  // Event handler for the end of file
-  readInterface.on("close", () => {
-    console.log(cardDeck);
-  });
-  
-  // Event handler for handling errors
-  readInterface.on("error", (err) => {
-    console.error("Error reading the CSV file:", err);
-  });
+
+  $.ajax({
+    url: "https://raw.githubusercontent.com/CSSEGISandData/COVID-19/6eae5b65a32b679efacf95a2867648330f83a871/csse_covid_19_data/csse_covid_19_time_series/time_series_19-covid-Confirmed.csv",
+    success: function(csv) {
+        const output = Papa.parse(path, {
+          header: true, // Convert rows to Objects using headers as properties
+        });
+        if (output.data) {
+          console.log(output.data);
+        } else {
+          console.log(output.errors);
+        }
+    },
+    error: function(jqXHR, textStatus, errorThrow){
+        console.log(textStatus);
+    }
+});
+ 
 
   return cardDeck;
 };
