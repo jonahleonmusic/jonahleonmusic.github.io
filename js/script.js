@@ -13,59 +13,29 @@ function getCardDeck(artist, key){
 
 
   
-  // specify the path of the CSV file
-  let artistPath = artist.split(' ').join('_'); // changes "Domonic Fike to "Domonic_Fike" so can be read in path
-  const path = ("./card_data/").concat(artistPath).concat(".csv");
   
-  // var file = new File([], path);
-
-  // Papa.parse(path, {
-  //   header: true,
-  //   dynamicTyping: true,
-  //   complete: function(results) {
-  //     console.log(results);
-  //     cardDeck = results.data;
-  //   }
-  // });
-   let cardDeck;
-  
-   Papa.parse(path, {
-          download: true,
-          dynamicTyping: true,
-          complete: function(results) {
-            cardDeck = results.data;
-            // console.log(results.data);     
-    }
-  })
 
   console.log("got here");
 
   return cardDeck;
   // console.log(cardDeck);
 
-  
-//   jQuery.ajax({
-//     success: function(csv) {
-//         const output = Papa.parse(path, {
-//           header: true, // Convert rows to Objects using headers as properties
-//         });
-//         if (output.data) {
-//           console.log(output.data);
-//         } else {
-//           console.log(output.errors);
-//         }
-//     },
-//     error: function(jqXHR, textStatus, errorThrow){
-//         console.log(textStatus);
-//     }
-// });
- 
 
-  // return cardDeck;
 };
 
-function getCard(){
-  
+function getRandomInt(max) {
+  return Math.floor(Math.random() * max);
+}
+
+function showCard(cards){
+  let card = [];
+  //creates new card
+  for (let i = 0; i < cards[0].length; i++) {
+    card.push(cards[getRandomInt(cards.length)][i]);
+  };
+
+  console.log(card);
+  return card;
 };
 
 function newRhythym(length, genre){
@@ -91,15 +61,29 @@ function newRhythym(length, genre){
   
 }
 function newCard (artist, key) {
-  let cardDeck = getCardDeck(artist, "NA");
-  console.log(cardDeck);
-  let chordProgression = ["i", "IV", "V"];
-  let notes = [3,4,1];
-  let rhythym = newRhythym(1, genre); //rhythym is a list of objects where each object is a single note, note can either be "normal", "dotted", or "rest"
-  let artwork = "inputArtImageURLHere";
-  let lyric = "crazy lyric!";
-  let voicing = "inputVoicingImageHere";
-  let newCard = {genre: genre, chordProgression: chordProgression, notes: notes, rhythym: rhythym, artwork: artwork, lyric: lyric, voicing: voicing};
+  // specify the path of the CSV file
+  let artistPath = artist.split(' ').join('_'); // changes "Domonic Fike to "Domonic_Fike" so can be read in path
+  const path = ("./card_data/").concat(artistPath).concat(".csv");
+  
+  //gets deck of cards then calls showCard to pick a card then show it on html
+   Papa.parse(path, {
+          download: true,
+          dynamicTyping: true,
+          complete: function(results) {
+            showCard(results.data);
+            
+            // console.log(results.data);     
+    }
+  })
+  // let cardDeck = getCardDeck(artist, "NA");
+  // console.log(cardDeck);
+  // let chordProgression = ["i", "IV", "V"];
+  // let notes = [3,4,1];
+  // let rhythym = newRhythym(1, genre); //rhythym is a list of objects where each object is a single note, note can either be "normal", "dotted", or "rest"
+  // let artwork = "inputArtImageURLHere";
+  // let lyric = "crazy lyric!";
+  // let voicing = "inputVoicingImageHere";
+  // let newCard = {genre: genre, chordProgression: chordProgression, notes: notes, rhythym: rhythym, artwork: artwork, lyric: lyric, voicing: voicing};
 
   console.log("new card created!");
   cards.push(newCard);
