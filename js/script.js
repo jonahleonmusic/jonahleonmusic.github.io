@@ -17,9 +17,8 @@ function getCardDeck(artist, key){
   let artistPath = artist.split(' ').join('_'); // changes "Domonic Fike to "Domonic_Fike" so can be read in path
   const path = ("./card_data/").concat(artistPath).concat(".csv");
   let cardDeck = [];
-
+  console.log(path);
   jQuery.ajax({
-    url: "https://raw.githubusercontent.com/CSSEGISandData/COVID-19/6eae5b65a32b679efacf95a2867648330f83a871/csse_covid_19_data/csse_covid_19_time_series/time_series_19-covid-Confirmed.csv",
     success: function(csv) {
         const output = Papa.parse(path, {
           header: true, // Convert rows to Objects using headers as properties
