@@ -32,6 +32,7 @@ function getCardDeck(artist, key){
           download: true,
           complete: function(result) {
           console.log(result.data);
+          console.log("Hi");
           return result.data;
     }
   })
