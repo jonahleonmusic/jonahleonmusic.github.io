@@ -7,6 +7,7 @@ if (document.getElementById('my-work-link')) {
 
 
 //songwritingCards section
+const cards = [];
 function newRhythym(length, genre){
   let newRhythym = [{noteValue: .25, noteType: "normal"}, {noteValue: .125, noteType: "rest"}, {noteValue: .125, noteType: "normal"}, {noteValue: .5, noteType: "normal"}];
 
@@ -35,11 +36,11 @@ function newCard (genre, key) {
   let voicing = "inputVoicingImageHere";
   let newCard = {genre: genre, chordProgression: chordProgression, notes: notes, rhythym: rhythym, artwork: artwork, lyric: lyric, voicing: voicing};
 
+  console.log("new card created!);
+  cards.push(newCard);
+  console.log(cards);
   return newCard;
 }
 
 
 
-var card1 = newCard("The Beatles");
-
-console.log(card1.genre);
