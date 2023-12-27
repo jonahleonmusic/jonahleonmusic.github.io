@@ -13,6 +13,29 @@ function getRandomInt(max) {
   return Math.floor(Math.random() * max);
 }
 
+function createHTMLElement(card){
+  let artist = card[0];
+  let genre = card[1];
+  let rhythym = card[2]
+  let artURL = card[3];
+  let lyric = card[4];
+  let voicingURL = card[5];
+  let chords = card[6];
+  let notes = card[7];
+  
+ 
+  const cardContainer = document.createElement("div");
+
+  //create lyric header element
+  const lyricHeader = document.createElement("h2");
+  const lyricText = document.createTextNode(lyric);
+  lyricHeader.appendChild(lyricTect);
+
+  cardContainer.appendChild(lyricHeader);
+
+  
+  
+};
 function showCard(cards){
   let card = [];
   //creates new original card
@@ -21,7 +44,8 @@ function showCard(cards){
   };
 
   console.log(card);
-  return card;
+
+  createHTMLElement(card);
 };
 
 function newRhythym(length, genre){
