@@ -8,19 +8,6 @@ if (document.getElementById('my-work-link')) {
 
 //songwritingCards section
 
-function getCardDeck(artist, key){
-
-
-  
-  
-
-  console.log("got here");
-
-  return cardDeck;
-  // console.log(cardDeck);
-
-
-};
 
 function getRandomInt(max) {
   return Math.floor(Math.random() * max);
