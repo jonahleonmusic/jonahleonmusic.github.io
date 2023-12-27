@@ -31,6 +31,7 @@ function createHTMLElement(card){
   const lyricText = document.createTextNode(lyric);
   lyricHeader.appendChild(lyricText);
 
+  cardContainer.appendChild(lyricHeader);
 
   
   
