@@ -1,4 +1,3 @@
-theme: jekyll-theme-minimal
 # jonahleonmusic.github.io
 
 # Welcome to My Website!
