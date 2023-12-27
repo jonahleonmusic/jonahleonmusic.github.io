@@ -40,7 +40,10 @@ function showCard(cards){
   cards.shift(); //removes header section from array
   let card = [];
   //creates new original card
+  console.log(cards);
   for (let i = 0; i < cards[0].length; i++) {
+    console.log(cards[getRandomInt(cards.length));
+    console.log(i);
     card.push(cards[getRandomInt(cards.length)][i]);
   };
 
