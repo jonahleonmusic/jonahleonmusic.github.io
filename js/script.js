@@ -23,19 +23,19 @@ function createHTMLElement(card){
   let chords = card[6];
   let notes = card[7];
   
- 
-  const cardContainer = document.getElementById("card-container");
+  document.getElementById("card-image").src = artURL; //change image of back of card to artwork
+  // const cardContainer = document.getElementById("card-container");
 
-  //create lyric header element
-  const lyricHeader = document.createElement("h2");
-  const lyricText = document.createTextNode(lyric);
-  lyricHeader.appendChild(lyricText);
-  cardContainer.appendChild(lyricHeader);
+  // //create lyric header element
+  // const lyricHeader = document.createElement("h2");
+  // const lyricText = document.createTextNode(lyric);
+  // lyricHeader.appendChild(lyricText);
+  // cardContainer.appendChild(lyricHeader);
 
   //create art image element
-  var artwork = new Image();
-  artwork.src = artURL;
-  cardContainer.appendChild(artwork);
+  // var artwork = new Image();
+  // artwork.src = artURL;
+  // cardContainer.appendChild(artwork);
 
   
   
