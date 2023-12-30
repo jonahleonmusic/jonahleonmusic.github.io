@@ -63,9 +63,15 @@ body {
 }
 
 /* Add some padding inside the card container */
-.container {
+#rhythym-container{
   padding: 2px 16px;
+  height: 10%;
 }
+#voicing-container {
+  padding: 2px 16px;
+  height: 25%;
+}
+
 
 /* Add rounded corners to the top left and the top right corner of the image */
 #card-image {
