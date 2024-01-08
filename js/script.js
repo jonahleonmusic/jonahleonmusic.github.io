@@ -25,6 +25,7 @@ function createHTMLElement(card){
 
   var cardImage = document.getElementById("card-image");
   var lyricText = document.getElementById("lyric-text");
+  var voicingImage = document.getElementById("voicing-image");
   
   cardImage.src = artURL; //change image of back of card to artwork
   lyricText.innerText = lyric;
