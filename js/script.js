@@ -22,8 +22,13 @@ function createHTMLElement(card){
   let voicingURL = card[5];
   let chords = card[6];
   let notes = card[7];
+
+  var cardImage = document.getElementById("card-image");
+  var lyricText = document.getElementById("lyric-text");
   
-  document.getElementById("card-image").src = artURL; //change image of back of card to artwork
+  cardImage.src = artURL; //change image of back of card to artwork
+  lyricText.innerText = lyric;
+  
   // const cardContainer = document.getElementById("card-container");
 
   // //create lyric header element
