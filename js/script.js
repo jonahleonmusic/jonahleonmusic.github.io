@@ -28,8 +28,8 @@ function createHTMLElement(card){
   var voicingImage = document.getElementById("voicing-image");
   
   cardImage.src = artURL; //change image of back of card to artwork
-  lyricText.innerText = lyric;
-  
+  lyricText.innerText = lyric; //add new lyric to card 
+  voicingImage.src = voicingURL; //add voicing URL to card
   // const cardContainer = document.getElementById("card-container");
 
   // //create lyric header element
